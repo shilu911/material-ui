@@ -331,6 +331,7 @@ class DatePicker extends Component {
           mode={mode}
           okLabel={okLabel}
           onAccept={this.handleAccept}
+          onReset={this.handleAccept.bind(this, null)}
           onShow={onShow}
           onDismiss={onDismiss}
           ref="dialogWindow"

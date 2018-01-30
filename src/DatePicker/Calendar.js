@@ -34,9 +34,11 @@ class Calendar extends Component {
     minDate: PropTypes.object,
     mode: PropTypes.oneOf(['portrait', 'landscape']),
     okLabel: PropTypes.node,
+    resetLabel: PropTypes.node,
     onClickCancel: PropTypes.func,
     onClickDay: PropTypes.func,
     onClickOk: PropTypes.func,
+    onClickReset: PropTypes.func,
     open: PropTypes.bool,
     openToYearSelection: PropTypes.bool,
     shouldDisableDate: PropTypes.func,
@@ -320,8 +322,10 @@ class Calendar extends Component {
       firstDayOfWeek,
       locale,
       okLabel,
+      resetLabel,
       onClickCancel, // eslint-disable-line no-unused-vars
       onClickOk, // eslint-disable-line no-unused-vars
+      onClickReset,
       utils,
     } = this.props;
 
@@ -389,8 +393,10 @@ class Calendar extends Component {
               autoOk={this.props.autoOk}
               cancelLabel={cancelLabel}
               okLabel={okLabel}
+              resetLabel={resetLabel}
               onClickCancel={onClickCancel}
               onClickOk={onClickOk}
+              onClickReset={onClickReset}
             />
           }
         </div>

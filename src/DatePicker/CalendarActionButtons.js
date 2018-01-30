@@ -9,10 +9,12 @@ class CalendarActionButton extends Component {
     okLabel: PropTypes.node,
     onClickCancel: PropTypes.func,
     onClickOk: PropTypes.func,
+    onClickReset: PropTypes.func,
+    resetLabel: PropTypes.node,
   };
 
   render() {
-    const {cancelLabel, okLabel} = this.props;
+    const {cancelLabel, okLabel, resetLabel} = this.props;
 
     const styles = {
       root: {
@@ -49,6 +51,12 @@ class CalendarActionButton extends Component {
             style={styles.flatButtons}
           />
         }
+        <FlatButton
+          label={resetLabel}
+          onClick={this.props.onClickReset}
+          primary={true}
+          style={styles.flatButtons}
+        />
       </div>
     );
   }

@@ -26,6 +26,8 @@ class DatePickerDialog extends Component {
     mode: PropTypes.oneOf(['portrait', 'landscape']),
     okLabel: PropTypes.node,
     onAccept: PropTypes.func,
+    onReset: PropTypes.func,
+    resetLabel: PropTypes.node,
     onDismiss: PropTypes.func,
     onShow: PropTypes.func,
     open: PropTypes.bool,
@@ -41,6 +43,7 @@ class DatePickerDialog extends Component {
     container: 'dialog',
     locale: 'en-US',
     okLabel: 'OK',
+    resetLabel: 'Clear',
     openToYearSelection: false,
   };
 
@@ -96,6 +99,14 @@ class DatePickerDialog extends Component {
     });
   };
 
+  handleClickReset = () => {
+    this.props.onReset();
+
+    this.setState({
+      open: false,
+    });
+  }
+
   handleWindowKeyUp = (event) => {
     switch (keycode(event)) {
       case 'enter':
@@ -120,6 +131,7 @@ class DatePickerDialog extends Component {
       mode,
       okLabel,
       onAccept, // eslint-disable-line no-unused-vars
+      onReset,
       onDismiss, // eslint-disable-line no-unused-vars
       onShow, // eslint-disable-line no-unused-vars
       openToYearSelection,
@@ -128,6 +140,7 @@ class DatePickerDialog extends Component {
       style, // eslint-disable-line no-unused-vars
       animation,
       utils,
+      resetLabel,
       ...other
     } = this.props;
 
@@ -179,6 +192,8 @@ class DatePickerDialog extends Component {
             ref="calendar"
             onClickCancel={this.handleClickCancel}
             onClickOk={this.handleClickOk}
+            onClickReset={this.handleClickReset}
+            resetLabel={resetLabel}
             okLabel={okLabel}
             openToYearSelection={openToYearSelection}
             shouldDisableDate={shouldDisableDate}
